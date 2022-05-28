@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    background: #f3f3f3;
+    margin: 20px;
+}
+
+.container {
+    margin:0 auto;
+    width:500px;
+}
+
+input {
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: 1px solid #d3d3d3;
+}
+
+button.btn {
+    padding: 6px 8px;
+    border: none;
+    margin:0px 10px;
+    background-color: rgb(163, 163, 163);
+    color:#fff;
+    cursor: pointer;
+}

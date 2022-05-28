@@ -1,0 +1,27 @@
+<div class="container">
+    <ul id="todo">
+        <li class="item" [ngClass]="{'done': todo.done === true}" *ngFor="let todo of todos; let i = index"
+            routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: false }">
+            <div class="circle" *ngIf="router.url.includes('edit')">
+            </div>
+            <div *ngIf="!todo.edit" (click)="todo.done = !todo.done" class="circle">
+            </div>
+            <ng-container *ngIf="!todo.edit">
+                <span>{{todo.name}}</span>
+            </ng-container>
+            <ng-container *ngIf="todo.edit">
+                <input type="text" [(ngModel)]="todo.name">
+            </ng-container>
+            <button *ngIf="!todo.edit" (click)="deleteItem(i)" class="btn-delete">X</button>
+            <ng-container *ngIf="!todo.done">
+                <button *ngIf="!todo.edit" class="btn-edit" (click)="editItem(todo)">Edit</button>
+                <button *ngIf="todo.edit" class="btn-edit" (click)="updateItem(todo)">Save</button>
+            </ng-container>
+        </li>
+    </ul>
+
+    <ng-container *ngIf="!edit">
+        <input type="text" class="input-todo" [(ngModel)]="todoItem.name" placeholder="Add todo"> <button class="btn"
+            (click)="addItem()">Add todo</button>
+    </ng-container>
+</div>
